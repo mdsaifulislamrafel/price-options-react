@@ -1,15 +1,10 @@
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { useState } from 'react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
 const Phones = () => {
     const [phones, setPhones] = useState([]);
-    // useEffect(() => {
-    //     fetch('https://openapi.programming-hero.com/api/phones?search=iphone')    
-    //    .then(res => res.json())
-    //    .then(data => setPhones(data.data))
-    // }, [])
 
     axios.get('https://openapi.programming-hero.com/api/phones?search=iphone')
         .then(data => {
@@ -38,6 +33,7 @@ const Phones = () => {
 };
 
 Phones.propTypes = {
+    phones: PropTypes.array
 
 };
 
